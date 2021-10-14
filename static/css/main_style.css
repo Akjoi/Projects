@@ -1,0 +1,33 @@
+/* Контейнер главное страницы*/
+.main {
+	position: relative;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: block;
+	width: 80%;
+}
+div.row {
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+div.fr {
+	padding-right: 25px;
+	width: 50%;
+}
+div.fl {
+	padding-left: 25px;
+	width: 50%;
+}
+img {
+	width: 50%;
+}
+h1 {
+	font-size: 52px;
+	text-align: center;
+}
+p {
+	line-height: 1.5;
+	font-size: 36px;
+	text-align: justify;
+}

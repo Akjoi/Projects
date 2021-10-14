@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block style -%}
+<link type="text/css" href="{{ url_for('static',filename='css/registration_style.css')}}" rel="stylesheet" />
+{% endblock %}
+
+{% block login -%}
+{% if login  %}
+<li class="registration"><p>{{ login }}</p></li>
+{% else %}
+<li class="registration"><a href="{{ url_for('login')}}" class="registration">Вход / Регистрация</a></li>
+{% endif %}
+{% endblock %}
+
+{%block main -%}
+  <div id="login-form">
+    <h1>Регистрация</h1>
+      <fieldset>
+          <form action="/register" method="POST">
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div>
+              <p class="flash {{cat}} ">{{msg}}</p>
+            </div>
+            {% endfor %}
+            <p><label>Логин</label><input type="text" required value="" name='login'> </p>
+            <p><label>E-mail</label><input type="text" required value="" name='email' > </p>
+            <p><label>Пароль</label><input type="password" required value="" name='psw1'></p>
+            <p><label>Повторите пароль</label><input type="password" required value="" name='psw2'></p>
+            <input type="submit" value="Зарегистрироваться">
+          </form>
+      </fieldset>
+  </div> 
+  {% endblock %}

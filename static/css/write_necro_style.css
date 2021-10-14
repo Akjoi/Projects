@@ -1,0 +1,81 @@
+div.content {
+    padding-right: 10%;
+    padding-bottom: 2%;
+    display: flex;
+    padding-left: 10%;
+    margin: 50px auto;
+    width: 100%;
+}
+div.foto {
+    justify-content: space-between;
+    display: flex;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+}
+  #write_necro-form {
+      background-color: #363636;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;		
+    font-family: 'Open Sans', sans-serif;
+    width: 60%;
+      font-size: 16px;
+    
+  }
+   #write_necro-form fieldset {
+      border: none;
+      padding: 20px;
+      position: relative;
+  }
+  #write_necro-form fieldset form input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+  -webkit-appearance:none;
+  width: 260px;
+  align: center;
+  position: center;
+}
+  #write_necro-form fieldset form input[type="text"] {
+      margin-top: 10px;
+      border: 1px solid #292829;
+      border-radius: 3px 3px 0px 0px;
+      -moz-border-radius: 3px 3px 0px 0px;
+      -webkit-border-radius: 3px 3px 0px 0px;
+      padding: 12px 10px;
+      width: 870px;
+      -webkit-appearance:none;
+  }
+  #write_necro-form fieldset form input[type="submit"] {
+      background-color: #ebebeb;
+      border: none;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      color: #404040;
+      cursor: pointer;
+      float: none;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 12px 12px;
+    -webkit-appearance: none;
+  }
+  
+  #write_necro-form fieldset form input[type="submit"]:hover {
+      background-color:rgb(191, 219, 32);
+  }
+  label {
+      color:white;
+  }
+  textarea {
+    resize: none; 
+    border: 1px solid #292829;
+    border-radius: 3px 3px 0px 0px;
+    -moz-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    padding: 12px 10px;
+    width: 870px;
+    font-size: 16px;
+}

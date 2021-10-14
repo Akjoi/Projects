@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block style -%}
+<link type="text/css" href="{{ url_for('static',filename='css/registration_style.css')}}" rel="stylesheet" />
+{% endblock %}
+
+
+
+
+{%block main -%}
+  <div id="login-form">
+    <h1>Авторизация</h1>
+      <fieldset>
+          <form action="" method="POST">
+              {% for cat, msg in get_flashed_messages(True) %}
+              <div>
+                <p class="flash {{cat}} ">{{msg}}</p>
+              </div>
+              {% endfor %}
+              <p><label>Логин</label><input type="text" required value="" name='login'> </p>
+              <p><label>Пароль</label><input type="password" required value="" name='psw'></p>
+              <input type="submit" value="Войти">
+			  <p class = 'lead_to_reg'>Нет аккаунта?<a href="{{url_for ('register')}}" class = "lead_to_reg">Зарегистрироваться</a></p>
+          </form>
+      </fieldset>
+  </div> 
+  {% endblock %}

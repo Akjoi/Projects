@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block style-%}
+<link type="text/css" href="{{ url_for('static',filename='css/main_style.css')}}" rel="stylesheet" />
+{% endblock %}
+
+{% block login -%}
+{% if login  %}
+<li class="registration">
+	<p class="auth">Логин: {{login}}
+	</p>
+</li>
+{% else %}
+<li class="registration"><a href="{{ url_for('login')}}" class="registration">Вход / Регистрация</a></li>
+{% endif %}
+{% endblock %}
+
+{%block main -%}
+<div class ="main">
+	<div class="row">
+		<div class ="fr"> 
+			<h1>О проекте</h1>
+			<p>
+				CyberCemetery - это онлайн-сервис размещения некрологов.
+				Мы не являемся базой захоронений или реестром. 
+				Мы предоставляем доступ к открытой базе данных киберкладбища, которую создают и редактируют наши пользователи. 
+				Нас создают Ваши воспоминания, а мы храним их для вас.
+			</p>
+		</div>
+		<img src = "static/img/Клюев.jpg" class = "row">
+	</div>
+	<div class = "row">
+		<img src="static/img/Лимонов.jpg" class="second_row">
+		<div class = "fl">
+			<h1>Зачем?</h1>
+			<p>
+				Некоторое время назад один из авторов проекта наткнулся на некролог одного из деятелей театра и задумался, 
+				почему некрологи обычно пишут для известных или великих людей. 
+				Ведь память о простых людях тоже нужно сохранять. 
+				Ведь человек может быть великим в пределах одной семьи. 
+				Именно  для этих целей и был создан сервис.
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+

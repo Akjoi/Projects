@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block style-%}
+<link type="text/css" href="{{ url_for('static',filename='css/write_necro_style.css')}}" rel="stylesheet" />
+{% endblock %}
+
+{% block login -%}
+{% if login  %}
+<li class="registration">
+	<p class="auth">Логин: {{login}}
+	</p>
+</li>
+{% else %}
+<li class="registration"><a href="{{ url_for('login')}}" class="registration">Вход / Регистрация</a></li>
+{% endif %}
+{% endblock %}
+
+
+{% block main%}
+<div class="content">
+        <div id="write_necro-form">
+              <fieldset>
+                  <form action="/write_necro" method="POST">
+                    <p><label>Фамилия</label><input type="text" required value="" name='second_name'> </p>
+                    <p><label>Имя</label><input type="text" required value="" name='first_name' > </p>
+                    <p><label>Отчество</label><input type="text" required value="" name='father_name'></p>
+                    <p><label>Дата рождения  (гггг-мм-дд)</label><input type="text" required value="" name='bdate'></p>
+                    <p><label>Дата смерти  (гггг-мм-дд)</label><input type="text" required value="" name='ddate'></p>
+                    <label>Некролог</label>
+                    <p><textarea rows=10></textarea></p>
+                    <input type="submit" value="Опубликовать">
+                  </form>
+              </fieldset>
+        </div> 
+  </div> 
+
+
+{% endblock %}
