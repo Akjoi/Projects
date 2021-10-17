@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lets talk about</string>
+    <string name="emptySting">Здесь будут ваши темы для разговоров.
+        Чтобы добавить новую тему — нажмите кнопку [ + ] внизу экрана</string>
+    <string name="random">[ или ещё ]</string>
+    <string name="name">Name</string>
+    <string name="write_theme">[ + ]</string>
+    <string name="themes_screen_1">[ экран тем ]</string>
+    <string name="About_talk">о чём говорить</string>
+    <string name="themes_screen_2">←[ экран тем ]</string>
+    <string name="new_theme">Новая тема</string>
+    <string name="date">01/01</string>
+    <string name="my_themes">мои темы для разговора</string>
+</resources>
