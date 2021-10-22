@@ -42,12 +42,6 @@ class MainActivity : AppCompatActivity(){
         randomButton =
             findViewById(R.id.randomButton)
 
-
-
-
-        updateTheme()
-
-
         userButton.setOnClickListener {
             val intent = ThemeActivity.newIntent(this@MainActivity)
             startActivity(intent)
@@ -56,6 +50,7 @@ class MainActivity : AppCompatActivity(){
         randomButton.setOnClickListener{
             updateTheme()
         }
+        updateTheme()
 
     }
 
