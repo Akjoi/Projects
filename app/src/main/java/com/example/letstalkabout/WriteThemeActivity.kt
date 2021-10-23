@@ -3,6 +3,7 @@ package com.example.letstalkabout
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Editable
@@ -28,7 +29,6 @@ class WriteThemeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
         setContentView(R.layout.write_theme)
 
 
@@ -49,7 +49,7 @@ class WriteThemeActivity: AppCompatActivity() {
                 }
             }
             val intent = ThemeActivity.newIntent(this@WriteThemeActivity)
-            finish()
+            intent.flags = FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
 
