@@ -23,7 +23,7 @@ class ThemeActivity: AppCompatActivity(), ThemeListFragment.Callbacks {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.frame_for_user_theme_list)
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (currentFragment == null) {

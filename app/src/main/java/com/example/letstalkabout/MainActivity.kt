@@ -4,11 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.hanks.htextview.HTextView
+import com.hanks.htextview.HTextViewType
 import java.util.*
 
 
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity(){
             Theme
     private val themeRepository = ThemeRepository.get()
 
+
     // Функция создания Активити
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,22 +39,25 @@ class MainActivity : AppCompatActivity(){
         supportActionBar?.hide()
 
         theme = Theme()
-        setContentView(R.layout.frame_for_user_theme_list)
+
+        setContentView(R.layout.activity_main)
         themeTextView =
             findViewById(R.id.theme)
+
+
         userButton =
             findViewById(R.id.userButton)
-        randomButton =
-            findViewById(R.id.randomButton)
-
         userButton.setOnClickListener {
             val intent = ThemeActivity.newIntent(this@MainActivity)
             startActivity(intent)
         }
 
+        randomButton =
+            findViewById(R.id.randomButton)
         randomButton.setOnClickListener{
             updateTheme()
         }
+
         updateTheme()
 
     }

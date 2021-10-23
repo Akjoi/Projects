@@ -12,9 +12,15 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -32,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation 'hanks.xyz:htextview-library:0.1.5'
     implementation 'androidx.room:room-runtime:2.4.0-beta01'
     implementation 'androidx.room:room-common:2.3.0'
     implementation 'androidx.room:room-ktx:2.3.0'

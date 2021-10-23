@@ -10,6 +10,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -21,21 +22,36 @@ class WriteThemeActivity: AppCompatActivity() {
     private lateinit var safeButton: ImageButton
     private lateinit var themesButton: Button
     private val themeRepository = ThemeRepository.get()
-
+    private lateinit var warning: TextView
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         setContentView(R.layout.write_theme)
-        writeTheme =
-            findViewById(R.id.writeTheme)
-        safeButton =
-            findViewById(R.id.safeThemeButton)
+
+
+        warning =
+            findViewById(R.id.warning)
 
         // Реализация инактивности кнопки
+        safeButton =
+            findViewById(R.id.safeThemeButton)
         safeButton.setImageResource(R.drawable.safe_button_2)
         safeButton.isEnabled = false
+        // Клик сохранения
+        safeButton.setOnClickListener {
+            val content = writeTheme.text.toString()
+            runBlocking {
+                launch {
+                    themeRepository.insertTheme(Theme(theme = content, tag = 1))
+                }
+            }
+            val intent = ThemeActivity.newIntent(this@WriteThemeActivity)
+            finish()
+            startActivity(intent)
+        }
 
         themesButton =
             findViewById(R.id.themeScreenButton)
@@ -43,11 +59,25 @@ class WriteThemeActivity: AppCompatActivity() {
             val intent = MainActivity.newIntent(this@WriteThemeActivity)
             startActivity(intent)
         }
+
+        writeTheme =
+            findViewById(R.id.writeTheme)
         writeTheme.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().isNotEmpty()) {
-                    safeButton.setImageResource(R.drawable.safe_button_1)
-                    safeButton.isEnabled = true
+                    if (s != null) {
+                        if (s.length > 100)
+                        {
+                            warning.text = "Длина больше 100 символов"
+                            safeButton.setImageResource(R.drawable.safe_button_2)
+                            safeButton.isEnabled = false
+                        }
+                        else {
+                            warning.text = ""
+                            safeButton.setImageResource(R.drawable.safe_button_1)
+                            safeButton.isEnabled = true
+                        }
+                    }
                 }
                 else {
                     safeButton.setImageResource(R.drawable.safe_button_2)
@@ -62,19 +92,6 @@ class WriteThemeActivity: AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-        // Клик сохранения
-        safeButton.setOnClickListener {
-            val content = writeTheme.text.toString()
-                runBlocking {
-                    launch {
-                        themeRepository.insertTheme(Theme(theme = content, tag = 1))
-                    }
-                }
-            val intent = ThemeActivity.newIntent(this@WriteThemeActivity)
-            finish()
-            startActivity(intent)
-        }
     }
 
 

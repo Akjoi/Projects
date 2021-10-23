@@ -46,6 +46,7 @@ class ThemeListFragment : Fragment() {
                 container, false)
         themeRecyclerView =
             view.findViewById(R.id.theme_recycler_view) as RecyclerView
+        themeRecyclerView.isNestedScrollingEnabled = false
         themeRecyclerView.layoutManager =
             LinearLayoutManager(context)
         themeRecyclerView.adapter = adapter
