@@ -2,7 +2,6 @@ package com.example.letstalkabout
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-private const val TAG = "ThemeFragment"
+
 
 
 class ThemeListFragment : Fragment() {
@@ -117,9 +116,6 @@ class ThemeListFragment : Fragment() {
             return ThemeHolder(view)
         }
 
-        override fun getItemViewType(position: Int): Int {
-            return super.getItemViewType(position)
-        }
         override fun getItemCount() =
             themes.size
         override fun onBindViewHolder(holder:

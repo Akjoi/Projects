@@ -6,4 +6,4 @@ import androidx.room.PrimaryKey
 @Entity
 data class Theme(@PrimaryKey(autoGenerate = true) val id: Int=0,
                  val theme: String = "",
-                 val tag: Int = 0) {}
+                 val tag: Int = 0)

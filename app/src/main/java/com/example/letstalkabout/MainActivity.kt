@@ -4,15 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.graphics.Color
 import android.os.Bundle
-import android.util.TypedValue
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.hanks.htextview.HTextView
-import com.hanks.htextview.HTextViewType
 import java.util.*
 
 

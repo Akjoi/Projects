@@ -68,7 +68,7 @@ class WriteThemeActivity: AppCompatActivity() {
                     if (s != null) {
                         if (s.length > 100)
                         {
-                            warning.text = "Длина больше 100 символов"
+                            warning.text = resources.getString(R.string.warning)
                             safeButton.setImageResource(R.drawable.safe_button_2)
                             safeButton.isEnabled = false
                         }

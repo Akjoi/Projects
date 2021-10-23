@@ -14,10 +14,6 @@ class EmptyFragment: Fragment() {
     private lateinit var themeTextView: TextView
     private lateinit var dateTextView: TextView
     private lateinit var deleteButton: ImageButton
-    // Создаем объект крайм по запросу
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     // Создаем вид Crime по макету
     override fun onCreateView(

@@ -5,13 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-private const val TAG = "ThemeActivity"
+
 class ThemeActivity: AppCompatActivity(), ThemeListFragment.Callbacks {
 
 
@@ -29,7 +28,6 @@ class ThemeActivity: AppCompatActivity(), ThemeListFragment.Callbacks {
         if (currentFragment == null) {
             themeRepository.getSize().observe(this, {
                 it?.let{
-                    Log.i(TAG, it)
                     if (it == "0") {
                         val fragment = EmptyFragment.newInstance()
                         supportFragmentManager.beginTransaction()
