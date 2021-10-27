@@ -15,7 +15,7 @@
         android:fontFamily="@font/inter_font"
         android:text="@string/new_theme"
         android:textColor="#53D4E5"
-        android:textSize="11sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,53 +25,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:background="@null"
         android:ellipsize="start"
         android:fontFamily="@font/inter_font"
         android:gravity="center_horizontal"
         android:hint="@string/hint"
-        android:textColorHint="#F9F9F9"
-        android:minHeight="48dp"
+        android:textColorHint="#7d7f7d"
+        android:minHeight="200dp"
         android:textColor="#F9F9F9"
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="25sp"
         android:lineSpacingExtra="0sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/warning"
         android:importantForAutofill="no"
-        android:inputType="text"/>
+        android:inputType="textMultiLine|textCapSentences"
+        android:lines="4"/>
 
-    <Button
-        android:id="@+id/themeScreenButton"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#0C0C0C"
-        android:paddingStart="0dp"
-        android:paddingTop="0dp"
-        android:paddingEnd="0dp"
-        android:text="@string/themes_screen_2"
-        android:textColor="#F9F9F9"
-        android:textSize="11sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:fontFamily="@font/inter_font"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:background="#0C0C0C"
-        android:id="@+id/safeThemeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/st" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/themeScreenButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:backgroundTint="#0C0C0C"
+            android:fontFamily="@font/inter_font"
+            android:gravity="start|center_vertical"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/themes_screen_2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#F9F9F9"
+            android:textSize="10sp" />
+            <ImageButton
+                android:id="@+id/safeThemeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0C0C0C"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/st"
+                android:minHeight="48dp"
+                android:layout_toEndOf="@id/safeThemeButton"
+                android:src="@drawable/safe_button_1"/>
+
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -101,7 +111,7 @@
         android:layout_marginTop="16dp"
         android:text=""
         android:textColor="#ff4d00"
-        android:textSize="14sp"
+        android:textSize="10sp"
         android:fontFamily="@font/inter_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

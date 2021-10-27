@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -33,9 +34,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.hide()
-
         theme = Theme()
-
         setContentView(R.layout.activity_main)
         themeTextView =
             findViewById(R.id.theme)
@@ -64,6 +63,7 @@ class MainActivity : AppCompatActivity(){
             themeRepository.getTheme().observe(this, {
                 if (it != null) {
                     themeTextView.text = it.theme
+                    startAnim()
                 }
             })
     }
@@ -71,6 +71,10 @@ class MainActivity : AppCompatActivity(){
         fun newIntent(packageContext: Context): Intent {
             return Intent(packageContext, MainActivity::class.java)
         }
+    }
+    private fun startAnim(){
+        val anim = AnimationUtils.loadAnimation(this,R.anim.anim)
+        themeTextView.startAnimation(anim)
     }
 }
 

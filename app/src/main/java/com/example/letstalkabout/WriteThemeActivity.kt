@@ -24,14 +24,13 @@ class WriteThemeActivity: AppCompatActivity() {
     private lateinit var themesButton: Button
     private val themeRepository = ThemeRepository.get()
     private lateinit var warning: TextView
+
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         setContentView(R.layout.write_theme)
-
-
         warning =
             findViewById(R.id.warning)
 
@@ -66,7 +65,7 @@ class WriteThemeActivity: AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().isNotEmpty()) {
                     if (s != null) {
-                        if (s.length > 100)
+                        if (s.length > 140)
                         {
                             warning.text = resources.getString(R.string.warning)
                             safeButton.setImageResource(R.drawable.safe_button_2)

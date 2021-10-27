@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,7 +60,7 @@ class ThemeListFragment : Fragment() {
             viewLifecycleOwner,
             { themes ->
                 themes?.let {
-                    updateUI(themes.reversed())
+                    updateUI(listOf(listOf(Theme()), themes).flatten().reversed())
                 }
             })
 
@@ -90,10 +91,19 @@ class ThemeListFragment : Fragment() {
             deleteButton.setOnClickListener(this)
         }
 
-        fun bind(theme: Theme, number: Int) {
-            this.theme = theme
-            themeTextView.text = theme.theme
-            dateTextView.text = (number+1).toString()
+        fun bind(theme: Theme, number: Int, key: Boolean) {
+            if (key){
+                this.theme = theme
+                themeTextView.text = theme.theme
+                dateTextView.text = (number+1).toString()
+            }
+            else {
+                this.theme = theme
+                themeTextView.text = ""
+                dateTextView.text = ""
+                deleteButton.isVisible = false
+            }
+
         }
 
         override fun onClick(view: View) {
@@ -120,9 +130,14 @@ class ThemeListFragment : Fragment() {
             themes.size
         override fun onBindViewHolder(holder:
                                       ThemeHolder, position: Int) {
-
                 val theme = themes[position]
-                holder.bind(theme, position)
+                if (position != themes.size - 1 ){
+                    holder.bind(theme, position, true)
+                }
+                else {
+                    holder.bind(theme, position, false)
+                }
+
         }
     }
 

@@ -8,40 +8,53 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/back">
-    <Button
-        android:id="@+id/themeScreenButton"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#0C0C0C"
-        android:paddingStart="0dp"
-        android:paddingTop="0dp"
-        android:paddingEnd="0dp"
-        android:text="@string/themes_screen_2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#F9F9F9"
-        android:textSize="11sp"
-        android:fontFamily="@font/inter_font"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#0C0C0C"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/white_menu"
-        tools:ignore="TouchTargetSizeCheck"
-        android:contentDescription="@string/um" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/themeScreenButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageButton2"
+            android:layout_alignParentStart="true"
+            android:backgroundTint="#0C0C0C"
+            android:fontFamily="@font/inter_font"
+            android:gravity="start|center_vertical"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/themes_screen_2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#F9F9F9"
+            android:textSize="10sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="#0C0C0C"
+            android:contentDescription="@string/um"
+            android:minWidth="50dp"
+            android:minHeight="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/white_menu"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RelativeLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/newThemeButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +73,7 @@
                 android:fontFamily="@font/inter_font"
                 android:text="@string/my_themes"
                 android:textColor="#499BFB"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +91,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="120dp"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent"
@@ -89,8 +102,7 @@
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="42dp"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -103,19 +115,23 @@
     <Button
         android:id="@+id/newThemeButton"
         android:layout_width="60dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="#F9F9F9"
         android:fontFamily="@font/inter_font"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
         android:text="@string/write_theme"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#0C0C0C"
-        android:textSize="11sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
