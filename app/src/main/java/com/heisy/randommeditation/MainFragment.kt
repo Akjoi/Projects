@@ -24,12 +24,12 @@ class MainFragment:Fragment(R.layout.fragment_main) {
     var meditationKind = ""
     // TextView для вида медитации
     private lateinit var meditationTextView: TextView
-
+    private lateinit var model: MainFragmentViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        model = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         // ViewModel
-        val model = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
+
 
         // Контейнер, который при кнопке рандом выйдет
         animatedContainer = view.findViewById(R.id.meditation_description_layout)
@@ -50,19 +50,19 @@ class MainFragment:Fragment(R.layout.fragment_main) {
         val attempt: TextView = view.findViewById(R.id.attempt)
         timer.text = "Время"
 
-
         random.setOnClickListener {
-            if (model.attempt > 2) {
-
-            }
-            // Анимация появления контейнера с анимацией
+            animation()
+//            if (model.attempt > 2) {
+//
+//            }
+//            // Анимация появления контейнера с анимацией
 
         }
         start.setOnClickListener {
             val timerFragment = TimerFragment()
             val bundle = Bundle()
             bundle.putDouble("time", time)
-            bundle.putString("meditation", med)
+            bundle.putString("meditation", meditationKind)
             timerFragment.arguments = bundle
             activity?.supportFragmentManager?.beginTransaction()?.apply {
                 replace(R.id.flFragment, timerFragment)
@@ -71,15 +71,15 @@ class MainFragment:Fragment(R.layout.fragment_main) {
             }
         }
     }
-    override fun animation(){
+    private fun animation(){
         val show = AnimationUtils.loadAnimation( context,R.anim.show)
-        description.startAnimation(show)
-        description.isVisible = true
+        animatedContainer.startAnimation(show)
+        animatedContainer.isVisible = true
 
         // Переустанавливаем значении
-        med  = model.kindsOfMeditation.random()
-        meditation.text = med
-        meditationDescription.text = med.repeat(10)
+        meditationKind = model.kindsOfMeditation.random()
+        meditationTextView.text = meditationKind
+        meditationDescription.text = meditationKind.repeat(10)
         time = (1..2).random().toDouble()
         timer.text = time.toString()
     }

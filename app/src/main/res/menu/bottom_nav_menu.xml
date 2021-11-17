@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/main"
-        android:title="Главный экран" />
+        android:title="Главный экран"
+        />
     <item
         android:id="@+id/achivments"
-        android:title="Достижения"/>
+        android:title="Достижения" />
     <item
         android:id="@+id/more"
         android:title="Справка" />
