@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Random meditation</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Подумайте, что конкретно тут написать. Дизайн по паттернам других страниц сделать легко. Созвонитесь и решите по содержанию</string>
+    <string name="random">Рандомить</string>
+    <string name="time">Время</string>
+    <string name="meditation">Медитация</string>
+    <string name="start">Начать</string>
+    <string name="main_icon">Медитации</string>
+    <string name="more_icon">Описания</string>
+    <string name="about_us_icon">Приложение</string>
 </resources>

@@ -10,14 +10,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        supportActionBar?.hide()
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         setCurrentFragment(MainFragment())
 
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when(item.itemId){
                 R.id.main->setCurrentFragment(MainFragment())
-                R.id.achivments->setCurrentFragment(AchivmentsFragment())
                 R.id.more->setCurrentFragment(MoreFragment())
                 R.id.about_us->setCurrentFragment(AboutUsFragment())
             }
