@@ -2,7 +2,7 @@ import random
 import vk
 
 
-session = vk.Session(access_token = 'f5396d99b7998bcc96c441835b3f58b337ef584a0a454dd4af4f386886b216afba3ac7795b44d2a69cc41')
+session = vk.Session(access_token = '')
 
 vkapi = vk.API(session)
 
